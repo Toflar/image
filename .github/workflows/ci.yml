@@ -34,10 +34,11 @@ jobs:
               run: php -d pcov.enabled=1 vendor/bin/phpunit --coverage-clover=clover.xml --colors=always
 
             - name: Upload the coverage report
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v4
               with:
                   file: ./clover.xml
                   fail_ci_if_error: true
+                  token: b9688d71-d4b7-41e5-8b00-25406027a507
 
     coding-style:
         name: Coding Style
