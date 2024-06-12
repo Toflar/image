@@ -239,7 +239,7 @@ class XmpFormat extends AbstractFormat
 
         foreach ($metadata as $namespace => $attributes) {
             foreach ($attributes as $attribute => $values) {
-                if (!$values = array_filter($values, 'strlen')) {
+                if (!$values = array_filter($values, static function ($value): bool { return '' !== (string) $value; })) {
                     continue;
                 }
 
