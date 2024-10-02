@@ -69,7 +69,7 @@ class DeferredResizerTest extends TestCase
         $calculator
             ->method('calculate')
             ->willReturnCallback(
-                static function (ResizeConfiguration $config, ImageDimensions $dimensions, ImportantPart $importantPart = null) {
+                static function (ResizeConfiguration $config, ImageDimensions $dimensions, ?ImportantPart $importantPart = null) {
                     return new ResizeCoordinates(
                         new Box($config->getWidth(), $config->getHeight()),
                         new Point(0, 0),
@@ -424,7 +424,7 @@ class DeferredResizerTest extends TestCase
         }
     }
 
-    private function createResizer(string $cacheDir = null, ResizeCalculator $calculator = null, Filesystem $filesystem = null, DeferredImageStorageInterface $storage = null): DeferredResizer
+    private function createResizer(?string $cacheDir = null, ?ResizeCalculator $calculator = null, ?Filesystem $filesystem = null, ?DeferredImageStorageInterface $storage = null): DeferredResizer
     {
         if (null === $cacheDir) {
             $cacheDir = $this->rootDir;

@@ -45,5 +45,5 @@ interface ImageInterface
     /**
      * Sets the important part.
      */
-    public function setImportantPart(ImportantPart $importantPart = null): self;
+    public function setImportantPart(?ImportantPart $importantPart = null): self;
 }

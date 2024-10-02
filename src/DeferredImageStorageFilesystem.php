@@ -40,7 +40,7 @@ class DeferredImageStorageFilesystem implements DeferredImageStorageInterface
      */
     private $locks = [];
 
-    public function __construct(string $cacheDir, Filesystem $filesystem = null)
+    public function __construct(string $cacheDir, ?Filesystem $filesystem = null)
     {
         if (null === $filesystem) {
             $filesystem = new Filesystem();

@@ -23,12 +23,12 @@ interface PictureInterface
      *
      * @param string $rootDir passing NULL is deprecated
      */
-    public function getImg(string $rootDir = null, string $prefix = ''): array;
+    public function getImg(?string $rootDir = null, string $prefix = ''): array;
 
     /**
      * Returns the source tags attributes.
      *
      * @param string $rootDir passing NULL is deprecated
      */
-    public function getSources(string $rootDir = null, string $prefix = ''): array;
+    public function getSources(?string $rootDir = null, string $prefix = ''): array;
 }

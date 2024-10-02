@@ -1177,7 +1177,7 @@ class ResizerTest extends TestCase
         }
     }
 
-    private function createResizer(bool $withSecret = true, string $cacheDir = null, ResizeCalculator $calculator = null, Filesystem $filesystem = null, MetadataReaderWriter $metadataReaderWriter = null): Resizer
+    private function createResizer(bool $withSecret = true, ?string $cacheDir = null, ?ResizeCalculator $calculator = null, ?Filesystem $filesystem = null, ?MetadataReaderWriter $metadataReaderWriter = null): Resizer
     {
         if (null === $cacheDir) {
             $cacheDir = $this->rootDir;

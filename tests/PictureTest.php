@@ -189,7 +189,7 @@ class PictureTest extends TestCase
         new Picture(['src' => $image, 'srcset' => [[$image, '1x'], [new \stdClass(), '2x']]], []);
     }
 
-    private function createPicture(ImageInterface $image = null, string $path = 'dummy.jpg'): Picture
+    private function createPicture(?ImageInterface $image = null, string $path = 'dummy.jpg'): Picture
     {
         if (null === $image) {
             $imagine = $this->createMock(ImagineInterface::class);

@@ -31,7 +31,7 @@ class PictureGenerator implements PictureGeneratorInterface
      */
     private $resizeOptions;
 
-    public function __construct(ResizerInterface $resizer, ResizeCalculator $calculator = null)
+    public function __construct(ResizerInterface $resizer, ?ResizeCalculator $calculator = null)
     {
         if (null === $calculator) {
             $calculator = new ResizeCalculator();

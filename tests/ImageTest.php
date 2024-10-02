@@ -187,7 +187,7 @@ class ImageTest extends TestCase
     /**
      * @dataProvider getDimensionsFromExifRotated
      */
-    public function testGetDimensionsFromExifRotatedFile(int $orientation, int $width, int $height, int $expectedWidth, int $expectedHeight, int $expectedOrientation = null): void
+    public function testGetDimensionsFromExifRotatedFile(int $orientation, int $width, int $height, int $expectedWidth, int $expectedHeight, ?int $expectedOrientation = null): void
     {
         if (!\function_exists('exif_read_data')) {
             $this->markTestSkipped('The PHP EXIF extension is not installed');
@@ -216,7 +216,7 @@ class ImageTest extends TestCase
     /**
      * @dataProvider getDimensionsFromExifRotated
      */
-    public function testGetDimensionsFromExifRotatedImage(int $orientation, int $width, int $height, int $expectedWidth, int $expectedHeight, int $expectedOrientation = null): void
+    public function testGetDimensionsFromExifRotatedImage(int $orientation, int $width, int $height, int $expectedWidth, int $expectedHeight, ?int $expectedOrientation = null): void
     {
         $imagineImage = $this->createMock(ImageInterface::class);
         $imagineImage
@@ -372,7 +372,7 @@ class ImageTest extends TestCase
      * @param ImagineInterface&MockObject $imagine
      * @param Filesystem&MockObject       $filesystem
      */
-    private function createImage(string $path = null, ImagineInterface $imagine = null, Filesystem $filesystem = null): Image
+    private function createImage(?string $path = null, ?ImagineInterface $imagine = null, ?Filesystem $filesystem = null): Image
     {
         if (null === $path) {
             $path = 'dummy.jpg';

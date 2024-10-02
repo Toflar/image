@@ -718,7 +718,7 @@ class PictureGeneratorTest extends TestCase
     /**
      * @param ResizerInterface&MockObject $resizer
      */
-    private function createPictureGenerator(ResizerInterface $resizer = null): PictureGenerator
+    private function createPictureGenerator(?ResizerInterface $resizer = null): PictureGenerator
     {
         if (null === $resizer) {
             $resizer = $this->createMock(ResizerInterface::class);

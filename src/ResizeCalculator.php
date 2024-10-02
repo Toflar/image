@@ -19,7 +19,7 @@ use Imagine\Image\Point;
 
 class ResizeCalculator
 {
-    public function calculate(ResizeConfiguration $config, ImageDimensions $dimensions, ImportantPart $importantPart = null): ResizeCoordinates
+    public function calculate(ResizeConfiguration $config, ImageDimensions $dimensions, ?ImportantPart $importantPart = null): ResizeCoordinates
     {
         $zoom = max(0, min(1, $config->getZoomLevel() / 100));
         $importantPartArray = $this->importantPartAsArray($dimensions, $importantPart);
@@ -168,7 +168,7 @@ class ResizeCalculator
      *
      * @return array<string,int>
      */
-    private function importantPartAsArray(ImageDimensions $dimensions, ImportantPart $importantPart = null): array
+    private function importantPartAsArray(ImageDimensions $dimensions, ?ImportantPart $importantPart = null): array
     {
         if (null === $importantPart) {
             $importantPart = new ImportantPart();

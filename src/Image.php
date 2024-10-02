@@ -51,7 +51,7 @@ class Image implements ImageInterface
      */
     private $importantPart;
 
-    public function __construct(string $path, ImagineInterface $imagine, Filesystem $filesystem = null)
+    public function __construct(string $path, ImagineInterface $imagine, ?Filesystem $filesystem = null)
     {
         if (null === $filesystem) {
             $filesystem = new Filesystem();
@@ -152,7 +152,7 @@ class Image implements ImageInterface
     /**
      * {@inheritdoc}
      */
-    public function setImportantPart(ImportantPart $importantPart = null): ImageInterface
+    public function setImportantPart(?ImportantPart $importantPart = null): ImageInterface
     {
         $this->importantPart = $importantPart;
 

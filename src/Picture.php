@@ -42,7 +42,7 @@ class Picture implements PictureInterface
     /**
      * {@inheritdoc}
      */
-    public function getImg(string $rootDir = null, string $prefix = ''): array
+    public function getImg(?string $rootDir = null, string $prefix = ''): array
     {
         if (null === $rootDir) {
             trigger_deprecation('contao/image', '1.2', 'Passing NULL as $rootDir is deprecated and will no longer work in version 2.0. Use the getRawImg() method instead.');
@@ -68,7 +68,7 @@ class Picture implements PictureInterface
     /**
      * {@inheritdoc}
      */
-    public function getSources(string $rootDir = null, string $prefix = ''): array
+    public function getSources(?string $rootDir = null, string $prefix = ''): array
     {
         if (null === $rootDir) {
             trigger_deprecation('contao/image', '1.2', 'Passing NULL as $rootDir is deprecated and will no longer work in version 2.0. Use the getRawSources() method instead.');
