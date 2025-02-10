@@ -92,7 +92,14 @@ class DeferredResizer extends Resizer implements DeferredResizerInterface
             return null;
         }
 
-        $config = $this->storage->get($targetPath);
+        try {
+            $config = $this->storage->get($targetPath);
+        } catch (\Throwable $exception) {
+            $this->storage->delete($targetPath);
+
+            return null;
+        }
+
 
         return new DeferredImage(
             Path::join($this->cacheDir, $targetPath),
