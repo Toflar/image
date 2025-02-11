@@ -140,7 +140,7 @@ class DeferredImageStorageFilesystemTest extends TestCase
         try {
             $storage->get('test');
         } finally {
-            $this->assertFilenotExists(Path::join($this->rootDir, 'deferred/test.json'));
+            $this->assertFileNotExists(Path::join($this->rootDir, 'deferred/test.json'));
         }
     }
 
@@ -158,7 +158,7 @@ class DeferredImageStorageFilesystemTest extends TestCase
         try {
             $storage->get('test');
         } finally {
-            $this->assertFilenotExists(Path::join($this->rootDir, 'deferred/test.json'));
+            $this->assertFileNotExists(Path::join($this->rootDir, 'deferred/test.json'));
         }
     }
 
