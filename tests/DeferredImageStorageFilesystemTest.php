@@ -137,7 +137,11 @@ class DeferredImageStorageFilesystemTest extends TestCase
 
         $this->expectException(JsonException::class);
 
-        $storage->get('test');
+        try {
+            $storage->get('test');
+        } finally {
+            $this->assertFileDoesNotExist(Path::join($this->rootDir, 'deferred/test.json'));
+        }
     }
 
     public function testInvalidJsonDataThrows(): void
@@ -151,7 +155,11 @@ class DeferredImageStorageFilesystemTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
 
-        $storage->get('test');
+        try {
+            $storage->get('test');
+        } finally {
+            $this->assertFileDoesNotExist(Path::join($this->rootDir, 'deferred/test.json'));
+        }
     }
 
     public function testInvalidUtf8Throws(): void
