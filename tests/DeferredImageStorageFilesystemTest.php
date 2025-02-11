@@ -140,7 +140,7 @@ class DeferredImageStorageFilesystemTest extends TestCase
         try {
             $storage->get('test');
         } finally {
-            $this->assertFileDoesNotExist(Path::join($this->rootDir, 'deferred/test.json'));
+            $this->assertFilenotExists(Path::join($this->rootDir, 'deferred/test.json'));
         }
     }
 
@@ -158,7 +158,7 @@ class DeferredImageStorageFilesystemTest extends TestCase
         try {
             $storage->get('test');
         } finally {
-            $this->assertFileDoesNotExist(Path::join($this->rootDir, 'deferred/test.json'));
+            $this->assertFilenotExists(Path::join($this->rootDir, 'deferred/test.json'));
         }
     }
 
@@ -229,6 +229,15 @@ class DeferredImageStorageFilesystemTest extends TestCase
             parent::assertMatchesRegularExpression($pattern, $string, $message);
         } else {
             parent::assertRegExp($pattern, $string, $message);
+        }
+    }
+
+    public static function assertFileNotExists(string $filename, string $message = ''): void
+    {
+        if (method_exists(parent::class, 'assertFileDoesNotExist')) {
+            parent::assertFileDoesNotExist($filename, $message);
+        } else {
+            parent::assertFileNotExists($filename, $message);
         }
     }
 }
